@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Database
+*.duckdb
+*.duckdb.wal
+ny_taxi_postgres_data/
+
+# Terraform
+terraform/
+
+# Notebooks
+notebook.ipynb
+
+# Generated data
+data/
+*.parquet
+*.csv.gz
+wheels-linux/
+
+# dbt generated files
+dbt_ny_taxi/target/
+dbt_ny_taxi/logs/
+dbt_ny_taxi/dbt_packages/
+
+# dbt example models
+dbt_ny_taxi/models/example/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

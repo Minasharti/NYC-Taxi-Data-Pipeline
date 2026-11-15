@@ -1,0 +1,109 @@
+table_name        |      column_name      |  data_type
+-------------------------+-----------------------+-----------------------------
+ green_tripdata          | unique_row_id         | text
+ green_tripdata          | filename              | text
+ green_tripdata          | vendorid              | text
+ green_tripdata          | lpep_pickup_datetime  | timestamp without time zone
+ green_tripdata          | lpep_dropoff_datetime | timestamp without time zone
+ green_tripdata          | store_and_fwd_flag    | text
+ green_tripdata          | ratecodeid            | text
+ green_tripdata          | pulocationid          | text
+ green_tripdata          | dolocationid          | text
+ green_tripdata          | passenger_count       | integer
+ green_tripdata          | trip_distance         | double precision
+ green_tripdata          | fare_amount           | double precision
+ green_tripdata          | extra                 | double precision
+ green_tripdata          | mta_tax               | double precision
+ green_tripdata          | tip_amount            | double precision
+ green_tripdata          | tolls_amount          | double precision
+ green_tripdata          | ehail_fee             | double precision
+ green_tripdata          | improvement_surcharge | double precision
+ green_tripdata          | total_amount          | double precision
+ green_tripdata          | payment_type          | integer
+ green_tripdata          | trip_type             | integer
+ green_tripdata          | congestion_surcharge  | double precision
+ green_tripdata_staging  | unique_row_id         | text
+ green_tripdata_staging  | filename              | text
+ green_tripdata_staging  | vendorid              | text
+ green_tripdata_staging  | lpep_pickup_datetime  | timestamp without time zone
+ green_tripdata_staging  | lpep_dropoff_datetime | timestamp without time zone
+ green_tripdata_staging  | store_and_fwd_flag    | text
+ green_tripdata_staging  | ratecodeid            | text
+ green_tripdata_staging  | pulocationid          | text
+ green_tripdata_staging  | dolocationid          | text
+ green_tripdata_staging  | passenger_count       | integer
+ green_tripdata_staging  | trip_distance         | double precision
+ green_tripdata_staging  | fare_amount           | double precision
+ green_tripdata_staging  | extra                 | double precision
+ green_tripdata_staging  | mta_tax               | double precision
+ green_tripdata_staging  | tip_amount            | double precision
+ green_tripdata_staging  | tolls_amount          | double precision
+ green_tripdata_staging  | ehail_fee             | double precision
+ green_tripdata_staging  | improvement_surcharge | double precision
+ green_tripdata_staging  | total_amount          | double precision
+ green_tripdata_staging  | payment_type          | integer
+ green_tripdata_staging  | trip_type             | integer
+ green_tripdata_staging  | congestion_surcharge  | double precision
+ yellow_taxi_trips       | VendorID              | bigint
+ yellow_taxi_trips       | tpep_pickup_datetime  | timestamp without time zone
+ yellow_taxi_trips       | tpep_dropoff_datetime | timestamp without time zone
+ yellow_taxi_trips       | passenger_count       | bigint
+ yellow_taxi_trips       | trip_distance         | double precision
+ yellow_taxi_trips       | RatecodeID            | bigint
+ yellow_taxi_trips       | store_and_fwd_flag    | text
+ yellow_taxi_trips       | PULocationID          | bigint
+ yellow_taxi_trips       | DOLocationID          | bigint
+ yellow_taxi_trips       | payment_type          | bigint
+ yellow_taxi_trips       | fare_amount           | double precision
+ yellow_taxi_trips       | extra                 | double precision
+ yellow_taxi_trips       | mta_tax               | double precision
+ yellow_taxi_trips       | tip_amount            | double precision
+ yellow_taxi_trips       | tolls_amount          | double precision
+ yellow_taxi_trips       | improvement_surcharge | double precision
+ yellow_taxi_trips       | total_amount          | double precision
+ yellow_taxi_trips       | congestion_surcharge  | double precision
+ yellow_tripdata         | unique_row_id         | text
+ yellow_tripdata         | filename              | text
+ yellow_tripdata         | vendorid              | text
+ yellow_tripdata         | tpep_pickup_datetime  | timestamp without time zone
+ yellow_tripdata         | tpep_dropoff_datetime | timestamp without time zone
+ yellow_tripdata         | passenger_count       | integer
+ yellow_tripdata         | trip_distance         | double precision
+ yellow_tripdata         | ratecodeid            | text
+ yellow_tripdata         | store_and_fwd_flag    | text
+ yellow_tripdata         | pulocationid          | text
+ yellow_tripdata         | dolocationid          | text
+ yellow_tripdata         | payment_type          | integer
+ yellow_tripdata         | fare_amount           | double precision
+ yellow_tripdata         | extra                 | double precision
+ yellow_tripdata         | mta_tax               | double precision
+ yellow_tripdata         | tip_amount            | double precision
+ yellow_tripdata         | tolls_amount          | double precision
+ yellow_tripdata         | improvement_surcharge | double precision
+ yellow_tripdata         | total_amount          | double precision
+ yellow_tripdata         | congestion_surcharge  | double precision
+ yellow_tripdata_staging | unique_row_id         | text
+ yellow_tripdata_staging | filename              | text
+ yellow_tripdata_staging | vendorid              | text
+ yellow_tripdata_staging | tpep_pickup_datetime  | timestamp without time zone
+ yellow_tripdata_staging | tpep_dropoff_datetime | timestamp without time zone
+ yellow_tripdata_staging | passenger_count       | integer
+ yellow_tripdata_staging | trip_distance         | double precision
+ yellow_tripdata_staging | ratecodeid            | text
+ yellow_tripdata_staging | store_and_fwd_flag    | text
+ yellow_tripdata_staging | pulocationid          | text
+ yellow_tripdata_staging | dolocationid          | text
+ yellow_tripdata_staging | payment_type          | integer
+ yellow_tripdata_staging | fare_amount           | double precision
+ yellow_tripdata_staging | extra                 | double precision
+ yellow_tripdata_staging | mta_tax               | double precision
+ yellow_tripdata_staging | tip_amount            | double precision
+ yellow_tripdata_staging | tolls_amount          | double precision
+ yellow_tripdata_staging | improvement_surcharge | double precision
+ yellow_tripdata_staging | total_amount          | double precision
+ yellow_tripdata_staging | congestion_surcharge  | double precision
+ zones                   | LocationID            | integer
+ zones                   | Borough               | text
+ zones                   | Zone                  | text
+ zones                   | service_zone          | text
+(106 rows)

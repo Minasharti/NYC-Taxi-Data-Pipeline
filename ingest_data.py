@@ -1,4 +1,9 @@
+
 import pandas as pd
+import click
+from sqlalchemy import create_engine
+from tqdm.auto import tqdm
+
 prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/'
 
 dtype = {
@@ -25,55 +30,7 @@ parse_dates = [
     "tpep_dropoff_datetime"
 ]
 
-df = pd.read_csv(
-    prefix + 'yellow_tripdata_2021-01.csv.gz',
-    dtype=dtype,
-    parse_dates=parse_dates
-)
 
-
-from sqlalchemy import create_engine 
-engine = create_engine('postgresql+psycopg://root:root@localhost:5432/ny_taxi')
-
-
-print(pd.io.sql.get_schema(df, name='yellow_taxi_data', con=engine))
-
-
-
-df_iter = pd.read_csv(
-    prefix + 'yellow_tripdata_2021-01.csv.gz',
-    dtype=dtype,
-    parse_dates=parse_dates,
-    iterator=True,
-    chunksize=100000
-)
-
-
-first = True
-from tqdm.auto import tqdm
-for df_chunk in tqdm(df_iter):
-
-    if first:
-        # Create table schema (no data)
-        df_chunk.head(0).to_sql(
-            name="yellow_taxi_data",
-            con=engine,
-            if_exists="replace"
-        )
-        first = False
-        print("Table created")
-
-    # Insert chunk
-    df_chunk.to_sql(
-        name="yellow_taxi_data",
-        con=engine,
-        if_exists="append"
-    )
-
-    print("Inserted:", len(df_chunk))
-
-
-import click
 @click.command()
 @click.option('--pg-user', default='root')
 @click.option('--pg-pass', default='root')
@@ -82,12 +39,40 @@ import click
 @click.option('--pg-db', default='ny_taxi')
 @click.option('--target-table', default='yellow_taxi_data')
 def run(pg_user, pg_pass, pg_host, pg_port, pg_db, target_table):
-    # Ingestion logic here
-    pass
+    engine = create_engine(
+        f'postgresql+psycopg://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{pg_db}'
+    )
+
+    df_iter = pd.read_csv(
+        prefix + 'yellow_tripdata_2021-01.csv.gz',
+        dtype=dtype,
+        parse_dates=parse_dates,
+        iterator=True,
+        chunksize=100000
+    )
+
+    first = True
+
+    for df_chunk in tqdm(df_iter):
+        if first:
+            df_chunk.head(0).to_sql(
+                name=target_table,
+                con=engine,
+                if_exists='replace',
+                index=False
+            )
+            first = False
+            print("Table created")
+
+        df_chunk.to_sql(
+            name=target_table,
+            con=engine,
+            if_exists='append',
+            index=False
+        )
+
+        print("Inserted:", len(df_chunk))
+
+
 if __name__ == '__main__':
     run()
-
-
-
-
-
