@@ -34,6 +34,7 @@ renamed as (
         cast(ehail_fee as numeric) as ehail_fee,
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(total_amount as numeric) as total_amount,
+        cast(congestion_surcharge as numeric) as congestion_surcharge,
         cast(payment_type as integer) as payment_type
 
     from tripdata
